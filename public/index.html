@@ -1,1 +1,42 @@
-
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Browser MMORPG — ต้นแบบ</title>
+<link rel="stylesheet" href="style.css">
+<script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+<header><div><div class="eyebrow">BROWSER MMORPG • PROTOTYPE</div><h1>🌿 อาณาจักรเริ่มต้น</h1></div><span id="connection" class="pill">กำลังเชื่อมต่อ…</span></header>
+<main>
+<section id="login" class="panel login">
+  <h2>เข้าสู่โลกผจญภัย</h2><p>ใส่ชื่อที่ใช้ในเกมและเลือกอาชีพ</p>
+  <label>ชื่อตัวละคร<input id="playerName" maxlength="16" value="นักผจญภัย"></label>
+  <label>อาชีพ<select id="job"><option>นักดาบ</option><option>นักเวท</option><option>นักธนู</option></select></label>
+  <button id="joinBtn">เริ่มเล่น</button>
+</section>
+<section id="game" hidden>
+  <div class="columns">
+    <div class="maincol">
+      <div class="panel stats" id="stats">รอข้อมูลตัวละคร…</div>
+      <div class="panel world-wrap">
+        <div class="world-top"><strong>🌳 หมู่บ้านผู้เริ่มต้น</strong><span>คลิกพื้นที่เพื่อเดิน • คลิกมอนสเตอร์เพื่อโจมตี</span></div>
+        <canvas id="world" width="1000" height="580" aria-label="พื้นที่เล่นเกม"></canvas>
+        <div class="mobile-hint">บนมือถือ: แตะตำแหน่งที่ต้องการเดิน</div>
+      </div>
+      <div class="panel controls">
+        <button id="potionBtn" class="secondary">🧪 ใช้ยาฟื้นพลัง</button><button id="skillBtn" class="secondary">✨ ใช้สกิล</button>
+        <label class="guild-label">ชื่อกิลด์ <input id="guildName" placeholder="เช่น Moon Knights"></label><button id="guildBtn" class="secondary">🏰 สร้างกิลด์</button>
+      </div>
+    </div>
+    <aside class="sidecol">
+      <div class="panel"><h3>🎒 กระเป๋าไอเทม</h3><div id="inventory"></div></div>
+      <div class="panel"><h3>👥 ผู้เล่นออนไลน์</h3><div id="playerList"></div><p class="tiny">เลือกผู้เล่นเพื่อแลกเปลี่ยนทดลองหรือประลอง PvP</p></div>
+      <div class="panel"><h3>📜 บันทึกเหตุการณ์</h3><div id="log" class="log"></div></div>
+    </aside>
+  </div>
+</section>
+<footer>ต้นแบบสำหรับทดลองเท่านั้น • บัญชีและไอเทมยังไม่บันทึกถาวร</footer>
+</main>
+<script src="game.js"></script>
+</body></html>
